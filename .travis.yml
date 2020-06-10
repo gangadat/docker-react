@@ -32,7 +32,6 @@ deploy:
   # whenever we push to master, then, that's when we deploy
   on:
     branch: master
-  # get access key from AWS programmatic user that was created in IAM
+  # get access key from AWS programmatic user that was created in IAM.
   access_key_id: $AWS_ACCESS_KEY
-  secret_access_key:
-    secure: "$AWS_SECRET_KEY"
+  secret_access_key: $AWS_SECRET_KEY
