@@ -9,6 +9,8 @@ RUN npm run build
 
 # FROM statements terminate the previous block
 FROM nginx
+# Expose the port for elasticbeanstalk to use for incoming traffic
+EXPOSE 80
 # Copy something from another phase
 COPY --from=builder /app/build /usr/share/nginx/html
 # we don't need to startup nginx, when we start the container
