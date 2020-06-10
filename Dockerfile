@@ -1,4 +1,4 @@
-# defining builder phase
+# defining builder phase.
 FROM node:alpine as builder 
 WORKDIR '/app'
 COPY package.json .
