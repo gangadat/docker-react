@@ -1,9 +1,9 @@
 # defining builder phase.
 FROM node:alpine as builder 
 WORKDIR '/app'
-COPY package.json .
+COPY package.json ./
 RUN npm install
-COPY package*.json ./ 
+COPY . .
 RUN npm run build
 # /app/build <--- all the things we care about for production
 
