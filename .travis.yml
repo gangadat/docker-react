@@ -1,0 +1,18 @@
+language: generic
+# tell travis that we need superuser permission to execute
+# this build.  Required for docker
+sudo: required
+services:
+  # tell travis that we need docker installed
+  - docker
+
+# setup required before running tests or deploying software
+before_install:
+  # create a tag for the image so we can refer to it by name
+  # instead of random generated ID
+  # Convention for tag: "Docker Username/Repository Name"
+  - docker build -t charlienlouie/docker-react -f Dockerfile.dev .
+
+# command needed to run our test suite
+script:
+  - docker run -e CI=true charlienlouie/docker-react npm run test
